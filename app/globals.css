@@ -1,0 +1,648 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* Prevent layout shift from scrollbar */
+html {
+  overflow-y: scroll;
+  scrollbar-gutter: stable;
+  scroll-behavior: smooth;
+}
+
+/* Prevent image dragging and saving */
+img {
+  -webkit-user-drag: none;
+  -khtml-user-drag: none;
+  -moz-user-drag: none;
+  -o-user-drag: none;
+  user-drag: none;
+  pointer-events: auto;
+}
+
+img::selection {
+  background: transparent;
+}
+
+/* Ensure consistent scrollbar behavior */
+body {
+  overflow-x: hidden;
+  /* Prevent layout shifts from dynamic content */
+  min-height: 100vh;
+  /* Better font rendering on all devices */
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  text-rendering: optimizeLegibility;
+  font-feature-settings: "kern" 1;
+}
+
+/* Apply Geomanist font to all text elements */
+body {
+  font-family: var(--font-geomanist), 'Geomanist', system-ui, sans-serif;
+  font-weight: 400; /* Geomanist Regular */
+  font-size: 16px;
+  line-height: 1.5;
+}
+
+/* Desktop Heading Sizes & Weights - All use PP Nikkei Maru */
+h1 {
+  font-family: var(--font-pp-nikkei-maru), 'PP Nikkei Maru', system-ui, sans-serif;
+  font-size: 56px;
+  font-weight: 400; /* PP Nikkei Maru Regular */
+  line-height: 1.1;
+}
+
+h2 {
+  font-family: var(--font-pp-nikkei-maru), 'PP Nikkei Maru', system-ui, sans-serif;
+  font-size: 44px;
+  font-weight: 400; /* PP Nikkei Maru Regular */
+  line-height: 1.15;
+}
+
+h3 {
+  font-family: var(--font-pp-nikkei-maru), 'PP Nikkei Maru', system-ui, sans-serif;
+  font-size: 32px;
+  font-weight: 400; /* PP Nikkei Maru Regular */
+  line-height: 1.2;
+}
+
+h4 {
+  font-family: var(--font-pp-nikkei-maru), 'PP Nikkei Maru', system-ui, sans-serif;
+  font-size: 24px;
+  font-weight: 400; /* PP Nikkei Maru Regular */
+  line-height: 1.25;
+}
+
+h5 {
+  font-family: var(--font-pp-nikkei-maru), 'PP Nikkei Maru', system-ui, sans-serif;
+  font-size: 20px;
+  font-weight: 400; /* PP Nikkei Maru Regular */
+  line-height: 1.3;
+}
+
+h6 {
+  font-family: var(--font-pp-nikkei-maru), 'PP Nikkei Maru', system-ui, sans-serif;
+  font-size: 18px;
+  font-weight: 400; /* PP Nikkei Maru Regular */
+  line-height: 1.35;
+}
+
+/* Paragraph & Body Text */
+p {
+  font-family: var(--font-geomanist), 'Geomanist', system-ui, sans-serif;
+  font-size: 16px;
+  font-weight: 400; /* Geomanist Regular */
+  line-height: 1.5;
+}
+
+/* Small Text */
+.text-small, small {
+  font-size: 14px;
+  font-weight: 400;
+  line-height: 1.45;
+}
+
+/* Extra Small Text */
+.text-xs {
+  font-size: 12px;
+  font-weight: 400;
+  line-height: 1.4;
+}
+
+/* Buttons (CTA) */
+button, .btn {
+  font-weight: 700; /* Roobert Bold */
+}
+
+/* Mobile Responsive Sizes */
+@media (max-width: 768px) {
+  h1 {
+    font-size: clamp(36px, 10vw, 40px);
+    line-height: 1.05;
+  }
+  
+  h2 {
+    font-size: 30px;
+    line-height: 1.1;
+  }
+  
+  h3 {
+    font-size: 24px;
+    line-height: 1.15;
+  }
+  
+  h4 {
+    font-size: 20px;
+    line-height: 1.2;
+  }
+  
+  p {
+    font-size: clamp(15px, 4vw, 16px);
+  }
+  
+  .text-small, small {
+    font-size: clamp(13px, 3.5vw, 14px);
+  }
+}
+
+/* Font weight utilities */
+.font-light {
+  font-weight: 400; /* Geomanist Regular */
+}
+
+.font-regular {
+  font-weight: 400; /* Geomanist Regular */
+}
+
+.font-medium {
+  font-weight: 400; /* Geomanist Regular */
+}
+
+.font-semibold {
+  font-weight: 400; /* Geomanist Regular */
+}
+
+.font-bold {
+  font-weight: 400; /* Geomanist Regular - No bold */
+}
+
+/* Gradient Text for Headings - Orange to Yellow-Orange in Dark Mode */
+.text-gradient-primary {
+  background: linear-gradient(to right, hsl(var(--primary)), hsl(var(--primary) / 0.8), hsl(var(--primary) / 0.6));
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+}
+
+.dark .text-gradient-primary {
+  background: linear-gradient(to right, #f97316, #fb923c, #fdba74);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+}
+
+/* Badge Styling - Vibrant in Dark Mode */
+/* Override default primary badge colors in dark mode for better visibility */
+.dark .border-primary\/20 {
+  border-color: rgba(251, 146, 60, 0.4) !important;
+}
+
+.dark .bg-primary\/5 {
+  background-color: rgba(251, 146, 60, 0.15) !important;
+}
+
+.dark .text-primary {
+  color: #fb923c !important;
+}
+
+.dark .bg-primary {
+  background-color: #f97316 !important;
+}
+
+/* Hero Carousel Animation - Alternating Columns */
+@keyframes scroll-up {
+  0% {
+    transform: translateY(0);
+  }
+  100% {
+    transform: translateY(-50%);
+  }
+}
+
+@keyframes scroll-down {
+  0% {
+    transform: translateY(-50%);
+  }
+  100% {
+    transform: translateY(0);
+  }
+}
+
+.animate-scroll-up {
+  animation: scroll-up 30s linear infinite;
+}
+
+.animate-scroll-down {
+  animation: scroll-down 30s linear infinite;
+}
+
+.animate-scroll-up:hover,
+.animate-scroll-down:hover {
+  animation-play-state: paused;
+}
+
+/* Mobile font adjustments for consistency */
+@media (max-width: 640px) {
+  body {
+    font-size: 16px;
+    line-height: 1.5;
+  }
+  
+  /* Prevent iOS font size adjustment */
+  html {
+    -webkit-text-size-adjust: 100%;
+    -ms-text-size-adjust: 100%;
+  }
+}
+
+/* Prevent button clicks from causing layout shifts */
+button, [role="button"] {
+  transform: translateZ(0);
+  backface-visibility: hidden;
+}
+
+/* Ensure dropdowns don't affect layout */
+[data-radix-popper-content-wrapper] {
+  transform: translateZ(0);
+}
+
+/* Fix for modal/overlay layout shifts */
+.fixed {
+  transform: translateZ(0);
+}
+
+/* Accessibility Improvements */
+@layer base {
+  /* Enhanced focus indicators */
+  *:focus-visible {
+    @apply outline-2 outline-offset-2 outline-primary;
+  }
+
+  /* Improved button focus */
+  button:focus-visible,
+  [role="button"]:focus-visible {
+    @apply ring-2 ring-primary ring-offset-2 ring-offset-background;
+  }
+
+  /* Link focus improvements */
+  a:focus-visible {
+    @apply ring-2 ring-primary ring-offset-2 ring-offset-background rounded-sm;
+  }
+
+  /* Form element focus */
+  input:focus-visible,
+  textarea:focus-visible,
+  select:focus-visible {
+    @apply ring-2 ring-primary ring-offset-2 ring-offset-background;
+  }
+
+  /* Skip links */
+  .sr-only {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    padding: 0;
+    margin: -1px;
+    overflow: hidden;
+    clip: rect(0, 0, 0, 0);
+    white-space: nowrap;
+    border: 0;
+  }
+
+  .focus-within\:not-sr-only:focus-within {
+    position: static;
+    width: auto;
+    height: auto;
+    padding: inherit;
+    margin: inherit;
+    overflow: visible;
+    clip: auto;
+    white-space: normal;
+  }
+
+  /* Reduced motion support */
+  @media (prefers-reduced-motion: reduce) {
+    *,
+    *::before,
+    *::after {
+      animation-duration: 0.01ms !important;
+      animation-iteration-count: 1 !important;
+      transition-duration: 0.01ms !important;
+    }
+  }
+
+  /* High contrast mode support */
+  @media (prefers-contrast: high) {
+    .border {
+      @apply border-2;
+    }
+    
+    .text-muted-foreground {
+      @apply text-foreground;
+    }
+  }
+}
+
+@font-face {
+  font-family: 'Geomanist';
+  src: url('/font/Geomanist-Book.woff2') format('woff2');
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Geomanist';
+  src: url('/font/Geomanist-Regular.woff2') format('woff2');
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Geomanist';
+  src: url('/font/Geomanist-Light.woff2') format('woff2');
+  font-weight: 300;
+  font-style: normal;
+  font-display: swap;
+}
+
+@layer base {
+  :root {
+    /* Neutrals - Light Mode Foundation (Softer, Less Bright) */
+    --background: 30 15% 97%;
+    --foreground: 220 18% 20%;
+    --surface: 30 12% 95%;
+    --surface-alt: 30 10% 93%;
+    
+    /* Cards & Elevated Surfaces */
+    --card: 0 0% 99%;
+    --card-foreground: 220 18% 20%;
+    --popover: 0 0% 99%;
+    --popover-foreground: 220 18% 20%;
+    
+    /* Primary Brand - #FE5B16 (Strategic Accent) */
+    --primary: 18 99% 54%;
+    --primary-foreground: 0 0% 100%;
+    --primary-soft: 18 90% 96%;
+    --primary-light: 18 85% 90%;
+    --primary-dark: 18 99% 45%;
+    
+    /* Secondary Accents (Complementary) */
+    --secondary: 220 12% 94%;
+    --secondary-foreground: 220 18% 20%;
+    --accent-blue: 200 70% 50%;
+    --accent-violet: 260 50% 60%;
+    --accent-green: 145 50% 48%;
+    
+    /* Text Hierarchy */
+    --text-primary: 220 18% 20%;
+    --text-secondary: 220 12% 40%;
+    --text-muted: 220 10% 52%;
+    
+    /* UI Elements */
+    --muted: 220 10% 94%;
+    --muted-foreground: 220 12% 40%;
+    --accent: 220 8% 96%;
+    --accent-foreground: 220 18% 20%;
+    
+    /* Borders & Inputs */
+    --border: 220 10% 86%;
+    --border-subtle: 220 8% 90%;
+    --input: 220 10% 90%;
+    --ring: 18 99% 54%;
+    
+    /* Feedback Colors */
+    --destructive: 0 72% 55%;
+    --destructive-foreground: 0 0% 100%;
+    --success: 145 55% 48%;
+    --warning: 38 85% 52%;
+    
+    --radius: 0.5rem;
+  }
+
+  .dark {
+    /* Neutrals - Dark Mode Foundation (Warm Charcoal) */
+    --background: 220 18% 6%;
+    --foreground: 30 8% 96%;
+    --surface: 220 18% 8%;
+    --surface-alt: 220 16% 10%;
+    
+    /* Cards & Elevated Surfaces */
+    --card: 220 18% 8%;
+    --card-foreground: 30 8% 96%;
+    --popover: 220 18% 7%;
+    --popover-foreground: 30 8% 96%;
+    
+    /* Primary Brand - #FE5B16 (Refined for Dark) */
+    --primary: 18 99% 54%;
+    --primary-foreground: 0 0% 100%;
+    --primary-soft: 18 80% 15%;
+    --primary-light: 18 85% 25%;
+    --primary-dark: 18 99% 45%;
+    
+    /* Secondary Accents (Muted for Dark) */
+    --secondary: 220 15% 14%;
+    --secondary-foreground: 30 8% 96%;
+    --accent-blue: 200 75% 60%;
+    --accent-violet: 260 55% 70%;
+    --accent-green: 145 55% 60%;
+    
+    /* Text Hierarchy */
+    --text-primary: 30 8% 96%;
+    --text-secondary: 220 8% 70%;
+    --text-muted: 220 6% 55%;
+    
+    /* UI Elements */
+    --muted: 220 16% 10%;
+    --muted-foreground: 220 8% 70%;
+    --accent: 220 16% 12%;
+    --accent-foreground: 30 8% 96%;
+    
+    /* Borders & Inputs */
+    --border: 220 14% 18%;
+    --border-subtle: 220 12% 14%;
+    --input: 220 14% 14%;
+    --ring: 18 99% 54%;
+    
+    /* Feedback Colors */
+    --destructive: 0 84% 60%;
+    --destructive-foreground: 0 0% 100%;
+    --success: 145 60% 55%;
+    --warning: 38 92% 55%;
+  }
+  .theme {
+    --animate-shimmer-slide: shimmer-slide var(--speed) ease-in-out infinite alternate;
+    --animate-spin-around: spin-around calc(var(--speed) * 2) infinite linear;
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+  body {
+    @apply bg-background text-foreground;
+    font-family: var(--font-geomanist-regular), 'Geomanist', sans-serif;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    text-rendering: optimizeLegibility;
+  }
+  h1 {
+    font-family: var(--font-geomanist-book), 'Geomanist', sans-serif;
+    font-weight: 400;
+    line-height: 1.2;
+    margin-bottom: 1rem;
+    letter-spacing: -0.02em;
+  }
+  
+  h2 {
+    font-family: var(--font-geomanist-book), 'Geomanist', sans-serif;
+    font-weight: 400;
+    line-height: 1.3;
+    margin-bottom: 0.875rem;
+    letter-spacing: -0.01em;
+  }
+  
+  h3 {
+    font-family: var(--font-geomanist-book), 'Geomanist', sans-serif;
+    font-weight: 400;
+    line-height: 1.4;
+    margin-bottom: 0.75rem;
+    letter-spacing: -0.01em;
+  }
+  
+  h4 {
+    font-family: var(--font-geomanist-book), 'Geomanist', sans-serif;
+    font-weight: 400;
+    line-height: 1.5;
+    margin-bottom: 0.5rem;
+  }
+  
+  h5, h6 {
+    font-family: var(--font-geomanist-book), 'Geomanist', sans-serif;
+    font-weight: 400;
+    line-height: 1.5;
+    margin-bottom: 0.5rem;
+  }
+  p {
+    font-family: var(--font-geomanist-regular), 'Geomanist', sans-serif;
+    font-size: 16px;
+    font-weight: normal;
+    line-height: 24px;
+    letter-spacing: 0px;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+  }
+  button, [role="button"], nav, nav *, a {
+    font-family: var(--font-geomanist-regular), 'Geomanist', sans-serif;
+  }
+
+  .font-light {
+    font-family: var(--font-geomanist-light), 'Geomanist', sans-serif;
+    font-size: 24px;
+    font-weight: 300;
+    line-height: 33.6px;
+    letter-spacing: 0px;
+  }
+
+  /* Highlighted Important Words - Clean White/Grey */
+  .highlight {
+    color: hsl(var(--foreground));
+    font-weight: 600;
+    position: relative;
+    display: inline-block;
+  }
+
+  /* Greyscale Highlight for Paragraphs */
+  .highlight-grey {
+    color: hsl(var(--foreground));
+    font-weight: 600;
+  }
+
+  /* Grid Pattern Background */
+  .bg-grid-pattern {
+    background-image: 
+      linear-gradient(to right, hsl(var(--border)) 1px, transparent 1px),
+      linear-gradient(to bottom, hsl(var(--border)) 1px, transparent 1px);
+    background-size: 24px 24px;
+  }
+  
+  @media (min-width: 640px) {
+    .bg-grid-pattern {
+      background-size: 32px 32px;
+    }
+  }
+  
+  @media (min-width: 768px) {
+    .bg-grid-pattern {
+      background-size: 40px 40px;
+    }
+  }
+  
+  /* Logo Marquee Animation */
+  @keyframes scroll {
+    0% {
+      transform: translateX(0);
+    }
+    100% {
+      transform: translateX(-33.333%);
+    }
+  }
+  
+  .animate-scroll {
+    animation: scroll 30s linear infinite;
+  }
+  
+  .animate-scroll:hover {
+    animation-play-state: paused;
+  }
+}
+
+@theme inline {
+  --animate-cell-ripple: cell-ripple var(--duration, 200ms) ease-out none 1 var(--delay, 0ms);
+  
+  @keyframes cell-ripple {
+    0% {
+      opacity: 0.4;
+    }
+    50% {
+      opacity: 0.8;
+    }
+    100% {
+      opacity: 0.4;
+    }
+  }
+  
+  @keyframes spin-around {
+  0% {
+    transform: translateZ(0) rotate(0);
+    }
+  15%, 35% {
+    transform: translateZ(0) rotate(90deg);
+    }
+  65%, 85% {
+    transform: translateZ(0) rotate(270deg);
+    }
+  100% {
+    transform: translateZ(0) rotate(360deg);
+    }
+  }
+  @keyframes shimmer-slide {
+  to {
+    transform: translate(calc(100cqw - 100%), 0);
+    }
+  }
+  
+  /* Custom Scrollbar for Mobile Menu */
+  .custom-scrollbar {
+    scrollbar-width: thin;
+    scrollbar-color: rgba(255, 255, 255, 0.15) transparent;
+  }
+  
+  .custom-scrollbar::-webkit-scrollbar {
+    width: 4px;
+  }
+  
+  .custom-scrollbar::-webkit-scrollbar-track {
+    background: transparent;
+  }
+  
+  .custom-scrollbar::-webkit-scrollbar-thumb {
+    background: rgba(255, 255, 255, 0.15);
+    border-radius: 4px;
+  }
+  
+  .custom-scrollbar::-webkit-scrollbar-thumb:hover {
+    background: rgba(255, 255, 255, 0.25);
+  }
+}

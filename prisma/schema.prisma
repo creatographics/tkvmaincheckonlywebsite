@@ -1,0 +1,145 @@
+// This is your Prisma schema file,
+// learn more about it in the docs: https://pris.ly/d/prisma-schema
+
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "sqlite"
+  url      = env("DATABASE_URL")
+}
+
+model User {
+  id        String   @id @default(cuid())
+  email     String   @unique
+  password  String
+  role      String   @default("ADMIN") // ADMIN, SUPERADMIN
+  name      String?
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+
+  @@map("users")
+}
+
+model Project {
+  id           String         @id @default(cuid())
+  title        String
+  slug         String         @unique
+  category     String
+  description  String
+  images       ProjectImage[]
+  technologies String        // JSON array as string
+  status       String        @default("DRAFT") // DRAFT, PUBLISHED
+  client       String?
+  duration     String?
+  challenge    String?
+  solution     String?
+  results      String?       // JSON array as string
+  services     String?       // JSON array as string
+  testimonial  String?       // JSON object as string
+  createdAt    DateTime      @default(now())
+  updatedAt    DateTime      @updatedAt
+
+  @@map("projects")
+}
+
+model ProjectImage {
+  id        String  @id @default(cuid())
+  projectId String
+  url       String
+  alt       String?
+  order     Int     @default(0)
+  project   Project @relation(fields: [projectId], references: [id], onDelete: Cascade)
+
+  @@map("project_images")
+}
+
+model BlogPost {
+  id            String   @id @default(cuid())
+  title         String
+  slug          String   @unique
+  excerpt       String?
+  content       String
+  thumbnail     String?
+  category      String?
+  tags          String?  // JSON array
+  status        String   @default("DRAFT") // DRAFT, PUBLISHED
+  publishedAt   DateTime?
+  createdAt     DateTime @default(now())
+  updatedAt     DateTime @updatedAt
+  
+  // New fields for frontend compatibility
+  featuredImage String?
+  author        String?
+  readTime      String?
+  featured      Boolean  @default(false)
+}
+
+model WorkRequest {
+  id             String   @id @default(cuid())
+  name           String
+  email          String
+  phone          String
+  service        String
+  projectSummary String?
+  status         String @default("PENDING") // PENDING, IN_PROGRESS, COMPLETED, CANCELLED
+  createdAt      DateTime @default(now())
+  updatedAt      DateTime @updatedAt
+}
+
+model FormSubmission {
+  id        String           @id @default(cuid())
+  type      String // CONTACT, QUOTATION, WORK_REQUEST
+  name      String
+  email     String
+  phone     String?
+  service   String?
+  budget    String?
+  message   String?
+  ipAddress String?
+  userAgent String?
+  status    String           @default("PENDING") // PENDING, RESOLVED
+  createdAt DateTime         @default(now())
+  updatedAt DateTime         @updatedAt
+
+  @@map("form_submissions")
+}
+
+model SeoSettings {
+  id          String  @id @default(cuid())
+  pageType    String  // 'global', 'homepage', 'about', 'services', etc.
+  pageId      String? // For blog posts, projects, etc.
+  title       String?
+  description String?
+  canonicalUrl String?
+  ogTitle     String?
+  ogDescription String?
+  ogImage     String?
+  twitterCard String?
+  createdAt   DateTime @default(now())
+  updatedAt   DateTime @updatedAt
+
+  // Relations (removed to fix one-to-one constraint)
+
+  @@unique([pageType, pageId])
+  @@map("seo_settings")
+}
+
+model AdminLog {
+  id        String   @id @default(cuid())
+  action    String
+  resource  String
+  resourceId String?
+  userId    String
+  details   String?  // JSON string
+  createdAt DateTime @default(now())
+
+  @@map("admin_logs")
+}
+
+// Enums replaced with String fields for SQLite compatibility
+// UserRole: ADMIN, SUPERADMIN
+// ContentStatus: DRAFT, PUBLISHED
+// FormType: CONTACT, QUOTATION
+// SubmissionStatus: PENDING, RESOLVED

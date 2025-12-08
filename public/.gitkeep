@@ -1,0 +1,16 @@
+# Public Assets
+
+Add the following images to this directory for the components to display properly:
+
+## Homepage Images
+- `/payments.png` - Payment illustration (dark mode)
+- `/payments-light.png` - Payment illustration (light mode)
+- `/origin-cal.png` - Calendar illustration (light mode)
+- `/origin-cal-dark.png` - Calendar illustration (dark mode)
+
+## About Page Images
+- `/charts.png` - Charts/analytics illustration
+- `/music.png` - Music/media illustration
+- `/mail2.png` - Email/communication illustration
+
+Alternatively, you can update the component files to use your own image paths.
