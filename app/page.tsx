@@ -4,7 +4,6 @@ import { HomeLogoCloud } from '@/components/home-logo-cloud'
 import { Features } from '@/components/features-11'
 import HomeAboutSection from '@/components/home-about-section'
 import HomeTestimonials from '@/components/home-testimonials'
-import BlogSection from '@/components/blog-section'
 import HomeFAQSection from '@/components/home-faq-section'
 import { ServicesOverview } from '@/components/services-overview'
 import { ServicesFeatureSection } from '@/components/services-feature-section'
@@ -49,11 +48,6 @@ export default function Home() {
             
             {/* Testimonials Section */}
             <HomeTestimonials />
-            
-            <div className="border-t" />
-            
-            {/* Blog Section */}
-            <BlogSection />
             
             <div className="border-t" />
             

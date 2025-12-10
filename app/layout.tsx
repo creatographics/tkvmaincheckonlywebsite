@@ -233,8 +233,8 @@ export default function RootLayout({
   }
 
   return (
-    <html lang="en" className={`${geomanist.variable} ${ppNikkeiMaru.variable} ${GeistSans.variable}`}>
-      <body className={geomanist.className}>
+    <html lang="en" className={`${geomanist.variable} ${ppNikkeiMaru.variable} ${GeistSans.variable}`} suppressHydrationWarning>
+      <body className={geomanist.className} suppressHydrationWarning>
         <script
           type="application/ld+json"
           dangerouslySetInnerHTML={{ __html: JSON.stringify(structuredData) }}

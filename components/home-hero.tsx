@@ -13,9 +13,9 @@ export default function HomeHero() {
         <div className="grid lg:grid-cols-2 gap-6 lg:gap-12 items-center border-b">
           {/* Left Side - Text Content */}
           <div className="space-y-3 md:space-y-4 px-6 sm:px-8 lg:pl-12 text-center md:text-left">
-            <div className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-gradient-to-r from-primary/10 via-primary/5 to-transparent border border-primary/20 backdrop-blur-sm">
+            <div className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-full bg-primary/15 border border-primary/30">
               <div className="w-1.5 h-1.5 rounded-full bg-primary animate-pulse"></div>
-              <p className="text-[10px] font-semibold uppercase tracking-wide text-primary">
+              <p className="text-[11px] font-semibold uppercase tracking-wide text-primary">
                 Creative Design & Digital Solutions
               </p>
             </div>
@@ -51,18 +51,17 @@ export default function HomeHero() {
 
             <div className="flex flex-col sm:flex-row gap-3 pt-2 justify-center md:justify-start" data-component-name="HomeHero">
               <Link href="/quotation" className="w-full sm:w-auto">
-                <ShimmerButton className="shadow-2xl w-full sm:w-auto">
-                  <span className="whitespace-pre-wrap text-center text-sm font-medium leading-none tracking-tight text-white dark:from-white dark:to-slate-900/10 lg:text-base">
-                    Get Free Quote
-                  </span>
+                <ShimmerButton className="w-full sm:w-auto">
+                  Get Free Quote
                 </ShimmerButton>
               </Link>
-              <Link
-                href="/works"
-                className="inline-flex items-center justify-center gap-2 px-6 py-3 text-sm font-medium text-foreground bg-background border border-input rounded-lg hover:bg-accent hover:text-accent-foreground transition-colors w-full sm:w-auto"
-              >
-                View Our Work
-                <ArrowRight className="w-4 h-4" />
+              <Link href="/works" className="w-full sm:w-auto">
+                <ShimmerButton className="w-full sm:w-auto">
+                  <span className="flex items-center justify-center gap-2">
+                    View Our Work
+                    <ArrowRight className="w-4 h-4" />
+                  </span>
+                </ShimmerButton>
               </Link>
             </div>
 
@@ -70,10 +69,10 @@ export default function HomeHero() {
             <div className="flex flex-col sm:flex-row items-center justify-center md:justify-start gap-3 pt-3 border-t border-border/40">
               <div className="flex -space-x-2" data-component-name="HomeHero">
                 {[
-                  { src: 'https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=100&h=100&fit=crop&crop=face', alt: 'Indian business professional' },
-                  { src: 'https://images.unsplash.com/photo-1494790108755-2616b612b786?w=100&h=100&fit=crop&crop=face', alt: 'Indian entrepreneur' },
-                  { src: 'https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?w=100&h=100&fit=crop&crop=face', alt: 'Indian startup founder' },
-                  { src: 'https://images.unsplash.com/photo-1438761681033-6461ffad8d80?w=100&h=100&fit=crop&crop=face', alt: 'Indian business owner' }
+                  { src: 'https://images.unsplash.com/photo-1560250097-0b93528c311a?w=100&h=100&fit=crop&crop=face', alt: 'Business professional' },
+                  { src: 'https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?w=100&h=100&fit=crop&crop=face', alt: 'Entrepreneur' },
+                  { src: 'https://images.unsplash.com/photo-1580489944761-15a19d654956?w=100&h=100&fit=crop&crop=face', alt: 'Startup founder' },
+                  { src: 'https://images.unsplash.com/photo-1573497019940-1c28c88b4f3e?w=100&h=100&fit=crop&crop=face', alt: 'Business owner' }
                 ].map((person, i) => (
                   <div
                     key={i}

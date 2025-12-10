@@ -34,8 +34,8 @@ export function IndustriesSection() {
         <div className="space-y-4">
           {/* First Row - Scrolling Left */}
           <div className="relative overflow-hidden">
-            <div className="absolute left-0 top-0 bottom-0 w-32 bg-gradient-to-r from-white dark:from-background to-transparent z-10 pointer-events-none" />
-            <div className="absolute right-0 top-0 bottom-0 w-32 bg-gradient-to-l from-white dark:from-background to-transparent z-10 pointer-events-none" />
+            <div className="absolute left-0 top-0 bottom-0 w-32 bg-gradient-to-r from-[#1E1E1E] via-[#1E1E1E]/80 to-transparent z-10 pointer-events-none" />
+            <div className="absolute right-0 top-0 bottom-0 w-32 bg-gradient-to-l from-[#1E1E1E] via-[#1E1E1E]/80 to-transparent z-10 pointer-events-none" />
             
             <div className="flex gap-4 animate-scroll-left">
               {[...Array(2)].map((_, setIndex) => (
@@ -57,7 +57,7 @@ export function IndustriesSection() {
                     const Icon = industry.icon;
                     return (
                       <div key={`${setIndex}-${index}`} className="flex-shrink-0 w-44 sm:w-48">
-                        <div className="relative rounded-lg border bg-card p-3 sm:p-4 text-center transition-all duration-300 hover:border-primary/50 hover:bg-muted/50 group">
+                        <div className="relative rounded-lg border border-border/20 bg-card/30 p-3 sm:p-4 text-center transition-all duration-300 hover:border-primary/50 hover:bg-card/50 group">
                           <Icon 
                             className="w-8 h-8 sm:w-10 sm:h-10 text-foreground mb-2 sm:mb-3 transition-transform duration-300 group-hover:scale-110 mx-auto"
                             strokeWidth={1}
@@ -76,8 +76,8 @@ export function IndustriesSection() {
 
           {/* Second Row - Scrolling Right */}
           <div className="relative overflow-hidden">
-            <div className="absolute left-0 top-0 bottom-0 w-32 bg-gradient-to-r from-white dark:from-background to-transparent z-10 pointer-events-none" />
-            <div className="absolute right-0 top-0 bottom-0 w-32 bg-gradient-to-l from-white dark:from-background to-transparent z-10 pointer-events-none" />
+            <div className="absolute left-0 top-0 bottom-0 w-32 bg-gradient-to-r from-[#1E1E1E] via-[#1E1E1E]/80 to-transparent z-10 pointer-events-none" />
+            <div className="absolute right-0 top-0 bottom-0 w-32 bg-gradient-to-l from-[#1E1E1E] via-[#1E1E1E]/80 to-transparent z-10 pointer-events-none" />
             
             <div className="flex gap-4 animate-scroll-right">
               {[...Array(2)].map((_, setIndex) => (
@@ -99,7 +99,7 @@ export function IndustriesSection() {
                     const Icon = industry.icon;
                     return (
                       <div key={`${setIndex}-${index}`} className="flex-shrink-0 w-44 sm:w-48">
-                        <div className="relative rounded-lg border bg-card p-3 sm:p-4 text-center transition-all duration-300 hover:border-primary/50 hover:bg-muted/50 group">
+                        <div className="relative rounded-lg border border-border/20 bg-card/30 p-3 sm:p-4 text-center transition-all duration-300 hover:border-primary/50 hover:bg-card/50 group">
                           <Icon 
                             className="w-8 h-8 sm:w-10 sm:h-10 text-foreground mb-2 sm:mb-3 transition-transform duration-300 group-hover:scale-110 mx-auto"
                             strokeWidth={1}

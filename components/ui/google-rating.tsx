@@ -22,16 +22,16 @@ export function GoogleRating({
 
     for (let i = 0; i < fullStars; i++) {
       stars.push(
-        <Star key={i} className="w-4 h-4 fill-yellow-400 text-yellow-400" />
+        <Star key={i} className="w-4 h-4 fill-yellow-500 text-yellow-500" />
       )
     }
 
     if (hasHalfStar) {
       stars.push(
         <div key="half" className="relative">
-          <Star className="w-4 h-4 text-gray-300" />
+          <Star className="w-4 h-4 text-muted-foreground/30" />
           <div className="absolute inset-0 overflow-hidden" style={{ width: `${(rating % 1) * 100}%` }}>
-            <Star className="w-4 h-4 fill-yellow-400 text-yellow-400" />
+            <Star className="w-4 h-4 fill-yellow-500 text-yellow-500" />
           </div>
         </div>
       )
@@ -40,7 +40,7 @@ export function GoogleRating({
     const remainingStars = totalRating - Math.ceil(rating)
     for (let i = 0; i < remainingStars; i++) {
       stars.push(
-        <Star key={`empty-${i}`} className="w-4 h-4 text-gray-300" />
+        <Star key={`empty-${i}`} className="w-4 h-4 text-muted-foreground/30" />
       )
     }
 

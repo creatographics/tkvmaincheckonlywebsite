@@ -3,7 +3,6 @@ import Link from 'next/link'
 import { Logo } from '@/components/logo'
 import { Menu, X, ChevronDown, Palette, Code, TrendingUp, Smartphone, Box, Camera, Video, Briefcase, Users, Building2, User, Send } from '@/components/ui/icons'
 import { ShimmerButton } from '@/components/ui/shimmer-button'
-import { ThemeToggle } from '@/components/ui/theme-toggle'
 import { SearchTrigger } from '@/components/ui/search'
 import { useSearch } from '@/components/ui/search-context'
 import { WorksRequestModal } from '@/components/works-request-modal'
@@ -91,10 +90,10 @@ export const HeroHeader = ({ showReadingProgress = false }: { showReadingProgres
             <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
                 <nav
                     data-state={menuState ? 'active' : undefined}
-                    className={cn('relative transition-all duration-300 border rounded-full border-border/50 dark:border-white/10 shadow-[0_8px_32px_-8px_rgba(0,0,0,0.12),0_4px_16px_-4px_rgba(0,0,0,0.08)] dark:shadow-[0_8px_32px_-8px_rgba(0,0,0,0.4),0_4px_16px_-4px_rgba(0,0,0,0.3)]', 
-                        'after:absolute after:inset-0 after:bg-white/80 dark:after:bg-[#0A0A0A]/80 after:backdrop-blur-xl after:rounded-full after:-z-10',
-                        'before:absolute before:inset-0 before:bg-gradient-to-b before:from-white/60 before:to-transparent dark:before:from-white/5 dark:before:to-transparent before:pointer-events-none before:rounded-full before:z-0',
-                        scrolled && 'after:bg-white/90 dark:after:bg-[#0A0A0A]/90 after:backdrop-blur-2xl shadow-[0_12px_40px_-12px_rgba(0,0,0,0.15),0_6px_20px_-6px_rgba(0,0,0,0.1)] dark:shadow-[0_12px_40px_-12px_rgba(0,0,0,0.5),0_6px_20px_-6px_rgba(0,0,0,0.4)]')}>
+                    className={cn('relative transition-all duration-300 border rounded-full border-white/10', 
+                        'after:absolute after:inset-0 after:bg-[#1E1E1E]/80 after:backdrop-blur-xl after:rounded-full after:-z-10',
+                        'before:absolute before:inset-0 before:bg-gradient-to-b before:from-white/5 before:to-transparent before:pointer-events-none before:rounded-full before:z-0',
+                        scrolled && 'after:bg-[#1E1E1E]/90 after:backdrop-blur-2xl')}>
 
                     <motion.div
                         key={1}
@@ -112,7 +111,6 @@ export const HeroHeader = ({ showReadingProgress = false }: { showReadingProgres
                         {/* Mobile Controls - Right Side */}
                         <div className="flex items-center gap-1.5 lg:hidden" data-component-name="HeroHeader">
                             <SearchTrigger onOpen={openSearch} />
-                            <ThemeToggle />
                             <button
                                 onClick={() => setMenuState(!menuState)}
                                 aria-label={menuState == true ? 'Close Menu' : 'Open Menu'}
@@ -237,11 +235,10 @@ export const HeroHeader = ({ showReadingProgress = false }: { showReadingProgres
                         {/* Desktop Controls - Right Side */}
                         <div className="hidden lg:flex items-center gap-3">
                             <SearchTrigger onOpen={openSearch} />
-                            <ThemeToggle />
                             <Link href="/quotation">
                                 <ShimmerButton
                                     className="h-9 px-6"
-                                    background="hsl(220 18% 20%)"
+                                    background="#1E1E1E"
                                     shimmerColor="#ffffff"
                                     textColor="#ffffff"
                                 >
@@ -336,7 +333,7 @@ export const HeroHeader = ({ showReadingProgress = false }: { showReadingProgres
                                     <Link href="/quotation" onClick={() => setMenuState(false)} className="w-full block">
                                         <ShimmerButton
                                             className="h-10 px-5 w-full text-[13px] rounded-xl"
-                                            background="hsl(var(--primary))"
+                                            background="#1E1E1E"
                                             shimmerColor="#ffffff"
                                             textColor="hsl(var(--primary-foreground))"
                                         >

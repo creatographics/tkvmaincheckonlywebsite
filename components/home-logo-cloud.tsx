@@ -65,8 +65,8 @@ export function HomeLogoCloud() {
         {/* Logo Marquee */}
         <div className="relative w-full overflow-hidden py-12 border-t border-border/40">
           {/* Fade edges */}
-          <div className="absolute left-0 top-0 bottom-0 w-24 bg-gradient-to-r from-white dark:from-background to-transparent z-10 pointer-events-none"></div>
-          <div className="absolute right-0 top-0 bottom-0 w-24 bg-gradient-to-l from-white dark:from-background to-transparent z-10 pointer-events-none"></div>
+          <div className="absolute left-0 top-0 bottom-0 w-24 bg-gradient-to-r from-[#1E1E1E] to-transparent z-10 pointer-events-none"></div>
+          <div className="absolute right-0 top-0 bottom-0 w-24 bg-gradient-to-l from-[#1E1E1E] to-transparent z-10 pointer-events-none"></div>
           
           <div className="flex gap-16 animate-scroll">
             {[...clientLogos, ...clientLogos, ...clientLogos].map((logo, index) => (

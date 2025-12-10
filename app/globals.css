@@ -108,9 +108,19 @@ p {
   line-height: 1.4;
 }
 
-/* Buttons (CTA) */
+/* Buttons (CTA) - All buttons are pill-shaped */
 button, .btn {
   font-weight: 700; /* Roobert Bold */
+}
+
+/* Override rounded-lg and rounded-xl to rounded-full for buttons and links */
+button.rounded-lg,
+button.rounded-xl,
+a.rounded-lg,
+a.rounded-xl,
+.btn.rounded-lg,
+.btn.rounded-xl {
+  border-radius: 9999px !important;
 }
 
 /* Mobile Responsive Sizes */
@@ -165,37 +175,12 @@ button, .btn {
   font-weight: 400; /* Geomanist Regular - No bold */
 }
 
-/* Gradient Text for Headings - Orange to Yellow-Orange in Dark Mode */
+/* Gradient Text for Headings */
 .text-gradient-primary {
-  background: linear-gradient(to right, hsl(var(--primary)), hsl(var(--primary) / 0.8), hsl(var(--primary) / 0.6));
-  -webkit-background-clip: text;
-  background-clip: text;
-  color: transparent;
-}
-
-.dark .text-gradient-primary {
   background: linear-gradient(to right, #f97316, #fb923c, #fdba74);
   -webkit-background-clip: text;
   background-clip: text;
   color: transparent;
-}
-
-/* Badge Styling - Vibrant in Dark Mode */
-/* Override default primary badge colors in dark mode for better visibility */
-.dark .border-primary\/20 {
-  border-color: rgba(251, 146, 60, 0.4) !important;
-}
-
-.dark .bg-primary\/5 {
-  background-color: rgba(251, 146, 60, 0.15) !important;
-}
-
-.dark .text-primary {
-  color: #fb923c !important;
-}
-
-.dark .bg-primary {
-  background-color: #f97316 !important;
 }
 
 /* Hero Carousel Animation - Alternating Columns */
@@ -358,100 +343,47 @@ button, [role="button"] {
 
 @layer base {
   :root {
-    /* Neutrals - Light Mode Foundation (Softer, Less Bright) */
-    --background: 30 15% 97%;
-    --foreground: 220 18% 20%;
-    --surface: 30 12% 95%;
-    --surface-alt: 30 10% 93%;
+    /* Dark Mode Only - #1E1E1E Background */
+    --background: 0 0% 11.8%; /* #1E1E1E */
+    --foreground: 0 0% 95%;
+    --surface: 0 0% 14%;
+    --surface-alt: 0 0% 16%;
     
     /* Cards & Elevated Surfaces */
-    --card: 0 0% 99%;
-    --card-foreground: 220 18% 20%;
-    --popover: 0 0% 99%;
-    --popover-foreground: 220 18% 20%;
+    --card: 0 0% 14%;
+    --card-foreground: 0 0% 95%;
+    --popover: 0 0% 13%;
+    --popover-foreground: 0 0% 95%;
     
-    /* Primary Brand - #FE5B16 (Strategic Accent) */
-    --primary: 18 99% 54%;
-    --primary-foreground: 0 0% 100%;
-    --primary-soft: 18 90% 96%;
-    --primary-light: 18 85% 90%;
-    --primary-dark: 18 99% 45%;
-    
-    /* Secondary Accents (Complementary) */
-    --secondary: 220 12% 94%;
-    --secondary-foreground: 220 18% 20%;
-    --accent-blue: 200 70% 50%;
-    --accent-violet: 260 50% 60%;
-    --accent-green: 145 50% 48%;
-    
-    /* Text Hierarchy */
-    --text-primary: 220 18% 20%;
-    --text-secondary: 220 12% 40%;
-    --text-muted: 220 10% 52%;
-    
-    /* UI Elements */
-    --muted: 220 10% 94%;
-    --muted-foreground: 220 12% 40%;
-    --accent: 220 8% 96%;
-    --accent-foreground: 220 18% 20%;
-    
-    /* Borders & Inputs */
-    --border: 220 10% 86%;
-    --border-subtle: 220 8% 90%;
-    --input: 220 10% 90%;
-    --ring: 18 99% 54%;
-    
-    /* Feedback Colors */
-    --destructive: 0 72% 55%;
-    --destructive-foreground: 0 0% 100%;
-    --success: 145 55% 48%;
-    --warning: 38 85% 52%;
-    
-    --radius: 0.5rem;
-  }
-
-  .dark {
-    /* Neutrals - Dark Mode Foundation (Warm Charcoal) */
-    --background: 220 18% 6%;
-    --foreground: 30 8% 96%;
-    --surface: 220 18% 8%;
-    --surface-alt: 220 16% 10%;
-    
-    /* Cards & Elevated Surfaces */
-    --card: 220 18% 8%;
-    --card-foreground: 30 8% 96%;
-    --popover: 220 18% 7%;
-    --popover-foreground: 30 8% 96%;
-    
-    /* Primary Brand - #FE5B16 (Refined for Dark) */
+    /* Primary Brand - #FE5B16 */
     --primary: 18 99% 54%;
     --primary-foreground: 0 0% 100%;
     --primary-soft: 18 80% 15%;
     --primary-light: 18 85% 25%;
     --primary-dark: 18 99% 45%;
     
-    /* Secondary Accents (Muted for Dark) */
-    --secondary: 220 15% 14%;
-    --secondary-foreground: 30 8% 96%;
+    /* Secondary Accents */
+    --secondary: 0 0% 18%;
+    --secondary-foreground: 0 0% 95%;
     --accent-blue: 200 75% 60%;
     --accent-violet: 260 55% 70%;
     --accent-green: 145 55% 60%;
     
     /* Text Hierarchy */
-    --text-primary: 30 8% 96%;
-    --text-secondary: 220 8% 70%;
-    --text-muted: 220 6% 55%;
+    --text-primary: 0 0% 95%;
+    --text-secondary: 0 0% 70%;
+    --text-muted: 0 0% 55%;
     
     /* UI Elements */
-    --muted: 220 16% 10%;
-    --muted-foreground: 220 8% 70%;
-    --accent: 220 16% 12%;
-    --accent-foreground: 30 8% 96%;
+    --muted: 0 0% 16%;
+    --muted-foreground: 0 0% 70%;
+    --accent: 0 0% 18%;
+    --accent-foreground: 0 0% 95%;
     
     /* Borders & Inputs */
-    --border: 220 14% 18%;
-    --border-subtle: 220 12% 14%;
-    --input: 220 14% 14%;
+    --border: 0 0% 22%;
+    --border-subtle: 0 0% 18%;
+    --input: 0 0% 18%;
     --ring: 18 99% 54%;
     
     /* Feedback Colors */
@@ -459,7 +391,10 @@ button, [role="button"] {
     --destructive-foreground: 0 0% 100%;
     --success: 145 60% 55%;
     --warning: 38 92% 55%;
+    
+    --radius: 0.5rem;
   }
+  
   .theme {
     --animate-shimmer-slide: shimmer-slide var(--speed) ease-in-out infinite alternate;
     --animate-spin-around: spin-around calc(var(--speed) * 2) infinite linear;

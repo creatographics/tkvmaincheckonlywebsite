@@ -45,7 +45,7 @@ export default function TeamSection() {
                             <div
                                 key={index}
                                 className="group relative flex-shrink-0 w-52">
-                                <div className="relative p-5 rounded-xl bg-gradient-to-br from-card to-card/50 border border-border/60 hover:border-primary/40 hover:shadow-xl hover:shadow-primary/5 transition-all duration-300 hover:-translate-y-1 overflow-hidden">
+                                <div className="relative p-5 rounded-xl bg-gradient-to-br from-card to-card/50 border border-border/60 hover:border-primary/40 transition-all duration-300 hover:-translate-y-1 overflow-hidden">
                                     {/* Decorative corner accent */}
                                     <div className="absolute top-0 right-0 w-16 h-16 bg-gradient-to-br from-primary/5 to-transparent rounded-bl-full opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
                                     

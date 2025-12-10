@@ -7,16 +7,25 @@ A modern Next.js website built with shadcn/ui components and Tailwind CSS.
 ### Homepage (`/`)
 - **Hero Section** - Eye-catching hero with animated text effects
 - **Features Sections** - Multiple feature showcase sections
-- **Integrations** - Display of integrated services and tools
+- **Industries Section** - Industries we serve
 - **FAQ Section** - Interactive accordion-based FAQ
 - **Testimonials** - Customer testimonials in a beautiful grid layout
-- **Footer** - Comprehensive footer with newsletter signup
+- **Footer** - Comprehensive footer
 
 ### About Page (`/about`)
 - **Secondary Hero** - Engaging hero section with stats
 - **Content Section** - Company overview with key features
 - **Team Section** - Meet the team with leadership, engineering, and marketing divisions
-- **Footer** - Comprehensive footer with newsletter signup
+- **Footer** - Comprehensive footer
+
+### Contact Page (`/contact`)
+- **Contact Form** - Sends emails directly to contact@tkvcreatographics.com
+- **Contact Information** - Phone, email, and office locations
+
+### Quotation Page (`/quotation`)
+- **Quotation Form** - Sends quote requests directly to contact@tkvcreatographics.com
+- **Process Section** - How we work
+- **FAQ Section** - Common questions
 
 ## Tech Stack
 
@@ -27,6 +36,7 @@ A modern Next.js website built with shadcn/ui components and Tailwind CSS.
 - shadcn/ui components
 - Framer Motion
 - Lucide Icons
+- Email notifications (SMTP)
 
 ## Getting Started
 
@@ -42,21 +52,26 @@ pnpm dev
 
 3. Open [http://localhost:3000](http://localhost:3000) in your browser.
 
-## Components Used
+## Email Configuration
 
-### Homepage
-- `@tailark/hero-section-3` - Hero section with header
-- `@tailark/features-10` - Feature cards with images
-- `@tailark/features-9` - Feature section with map and charts
-- `@tailark/integrations-1` - Integration cards
-- `@tailark/features-12` - FAQ accordion section
-- `@tailark/testimonials-1` - Testimonial cards
-- `@tailark/footer-3` - Footer with newsletter
+Forms send emails directly to **contact@tkvcreatographics.com**. To enable email functionality, configure SMTP settings in your `.env.local` file:
 
-### About Page
-- `@tailark/content-5` - Content section with features
-- `@tailark/team-1` - Team showcase section
-- Custom Secondary Hero - Hero section with statistics
+```env
+SMTP_HOST=smtp.gmail.com
+SMTP_PORT=587
+SMTP_SECURE=false
+SMTP_USER=your-email@gmail.com
+SMTP_PASS=your-app-password
+```
+
+## Features
+
+- **No Database Required** - All form submissions are sent via email
+- **Rate Limiting** - Built-in rate limiting for form submissions
+- **Form Validation** - Zod schema validation for all forms
+- **Responsive Design** - Mobile-first responsive design
+- **Dark Mode** - Full dark mode support
+- **SEO Optimized** - Meta tags, sitemaps, and structured data
 
 ## Build
 
